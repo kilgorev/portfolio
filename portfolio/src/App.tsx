@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import giraffeImg from './assets/giraffe.jpeg'
 import hopcatImg from './assets/hopcat.jpeg'
 import stadiumImg from './assets/stadium.jpeg'
@@ -142,11 +142,11 @@ function GameDev(){
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gamedev" element={<GameDev />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
