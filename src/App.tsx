@@ -3,6 +3,8 @@ import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import giraffeImg from './assets/giraffe.jpeg'
 import hopcatImg from './assets/hopcat.jpeg'
 import stadiumImg from './assets/stadium.jpeg'
+import linkedIcon from './assets/linkedin-2.svg'
+import itchIcon from './assets/itch.svg'
 import './App.css'
 
 function Home() {
@@ -90,25 +92,25 @@ function Home() {
             </li>
             <li>
               <a href="https://lollipopak.itch.io/" target="_blank">
-                <svg
+                <img
                   className="button-icon"
                   role="presentation"
                   aria-hidden="true"
+                  src={itchIcon}
                 >
-                  <use href="src/assets/itch.svg"></use>
-                </svg>
+                  </img>
                 itch.io
               </a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/victoria-kilgore-649888297/" target="_blank">
-                <svg
+                <img
                   className="button-icon"
                   role="presentation"
                   aria-hidden="true"
+                  src={linkedIcon}
                 >
-                  <use href="src/assets/linkedin-2.svg"></use>
-                </svg>
+                  </img>
                 LinkedIn
               </a>
             </li>
