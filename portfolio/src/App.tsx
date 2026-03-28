@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import giraffeImg from './assets/giraffe.jpeg'
 import hopcatImg from './assets/hopcat.jpeg'
 import stadiumImg from './assets/stadium.jpeg'
+import githubImg from './assets/github.png'
 import './App.css'
 
 function Home() {
@@ -79,12 +80,12 @@ function Home() {
           <ul>
             <li>
               <a href="https://github.com/kilgorev" target="_blank">
-                <svg
+         
+                  <svg
                   className="button-icon"
                   role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
+                  aria-hidden="true">
+                  <use href="src/assets/hub.svg"></use>
                 </svg>
                 GitHub
               </a>
