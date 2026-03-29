@@ -213,3 +213,16 @@
   align-items: center;
   flex-direction: column;
 }
+
+.header {
+  display: flex;
+  width: 10%;
+  padding-left: 2%;
+  padding-top: 2%;
+  .button-icon {
+    filter: invert(1);
+     &:hover {
+        filter: invert(1) sepia(1) saturate(5000%) hue-rotate(210deg);
+     }
+  }
+}
