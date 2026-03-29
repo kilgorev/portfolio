@@ -163,9 +163,8 @@ function Cinderella(){
   <>
   <h1> Cinderella: A Visual Novel</h1>
   <div className='GamePort'>
-    
   <iframe
-            src="./cinderella/cinderella_v02/index.html"
+            src="/portfolio/cinderella/cinderella_v02/index.html"
             width="960"
             height="540"
             style={{ border: 'none', display: 'block' }}
