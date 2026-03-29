@@ -198,3 +198,18 @@
   justify-content: center;
 
 }
+
+.game_article {
+  border-style: solid;
+  border-width: 20%;
+  padding: 1%;
+  margin: 1%;
+  text-align: left;
+}
+
+.GamePort {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}

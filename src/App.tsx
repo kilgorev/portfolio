@@ -7,6 +7,9 @@ import linkedIcon from './assets/linkedin-2.svg'
 import itchIcon from './assets/itch.svg'
 import './App.css'
 
+const cindDesc = "This was a project made for my Multimedia Project in my German Fairy Tales course.  While short, the project itself was meant to showcase my dialogue creation and state management skills. All assets were produced and created by myself (other than the music)."
+
+
 function Home() {
 
   return (
@@ -60,7 +63,9 @@ function Home() {
               </Link>
             </li>
             <li>
+              <Link to="/softwaredev">
               Software Development
+              </Link>
             </li>
             <li>
               Concepts
@@ -129,16 +134,49 @@ function GameDev(){
   return(
     <>
     <h1> Game Development </h1>
-    <p>Check out my personal projects!</p>
+    <h2>Check out my game collection!</h2>
 
     <section>
-      <div>
-        Game 1
+      <div className='game_article'>
+        <Link to="/cinderella">
+        <h3>Cinderella: A Visual Novel</h3>
+        </Link>
+        <p>{cindDesc}</p>
       </div>
     </section>
     </>
   )
 
+}
+
+function Software(){
+  return(
+  <>
+  <h1> Software Development </h1>
+  <p> These are my software projects!</p>
+  </>
+  )
+}
+
+function Cinderella(){
+  return(
+  <>
+  <h1> Cinderella: A Visual Novel</h1>
+  <div className='GamePort'>
+    
+  <iframe
+            src="./cinderella/cinderella_v02/index.html"
+            width="960"
+            height="540"
+            style={{ border: 'none', display: 'block' }}
+            title="Cinderella Game"
+            allowFullScreen
+          />
+
+          <p>{cindDesc}</p>
+          </div>
+          </>
+  )
 }
 
 export default function App() {
@@ -147,6 +185,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gamedev" element={<GameDev />} />
+        <Route path="/softwaredev" element={<Software />} />
+        <Route path="/cinderella" element={<Cinderella />} />
       </Routes>
     </HashRouter>
   )
