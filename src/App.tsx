@@ -5,6 +5,11 @@ import hopcatImg from './assets/hopcat.jpeg'
 import stadiumImg from './assets/stadium.jpeg'
 import linkedIcon from './assets/linkedin-2.svg'
 import itchIcon from './assets/itch.svg'
+import bookIcon from './assets/book.svg'
+import cinderellaCover from './assets/cinderella_cover.png'
+import battleCover from './assets/battle-sim.jpeg'
+import latchawCover from './assets/latchaw.png'
+import engineCover from './assets/game_engine.png'
 import './App.css'
 
 const cindDesc = "This was a project made for my Multimedia Project in my German Fairy Tales course.  While short, the project itself was meant to showcase my dialogue creation and state management skills. All assets were produced and created by myself (other than the music)."
@@ -62,10 +67,11 @@ function Home() {
 
 
       <section id="spacer"></section>
-      
 
       <section id="portfolio">
+        <img className="icon" src={bookIcon} role="presentation" aria-hidden="true" />
         <h2>Portfolio</h2>
+        <p>Interact with my work!</p>
         <div className = "navigate">
           <ul>
             <li>
@@ -149,12 +155,16 @@ function GameDev(){
     <h2>Check out my game collection!</h2>
 
     <section>
+      <Link to="/cinderella">
       <div className='game_article'>
-        <Link to="/cinderella">
+        <img src={cinderellaCover} className = "cover"></img>
+        <div>
         <h3>Cinderella: A Visual Novel</h3>
-        </Link>
+  
         <p>{cindDesc}</p>
+        </div>
       </div>
+      </Link>
     </section>
     </>
   )
@@ -167,6 +177,39 @@ function Software(){
   <Header/>
   <h1> Software Development </h1>
   <p> These are my software projects!</p>
+  <section>
+    <Link to="/lollipopak_engine">
+      <div className='game_article'>
+        <img src={engineCover} className = "cover"></img>
+        <div>
+        <h3>Game Engine</h3>
+  
+        <p>I used C++, Lua, and LuaBridge.</p>
+        </div>
+      </div>
+      </Link>
+    
+      <Link to="/pokemon_battle_sim">
+      <div className='game_article'>
+        <img src={battleCover} className = "cover"></img>
+        <div>
+        <h3>Pokemon Battle Simulator</h3>
+  
+        <p>I used R to create this project.</p>
+        </div>
+      </div>
+      </Link>
+
+      <Link to="/latchaw_website">
+      <div className='game_article'>
+        <img src={latchawCover} className = "cover"></img>
+        <div>
+        <h3>Website of Latchaw & Kilgore, CPA, P.C.</h3>
+        <p>I utilized wordpress to create their website. Showcases my abilities surrounding User Experience & Design.</p>
+      </div>
+      </div>
+      </Link>
+    </section>
   </>
   )
 }
@@ -193,6 +236,46 @@ function Cinderella(){
   )
 }
 
+function BattleSim(){
+  return(
+    <>
+      <Header/>
+      <h1>Pokemon Battle Simulator</h1>
+      <div className='GamePort'>
+      <iframe 
+        src="https://e244on-victoria-kilgore.shinyapps.io/pokemon_battle_sim/"
+        width="960"
+        height="800"
+        style={{ border: 'none', display: 'block' }}
+        title="Pokemon Battle Simulator"
+        allowFullScreen
+      />
+      </div>
+    </>
+  )
+}
+
+function GameEngine(){
+  return (
+    <>
+    <Header/>
+    <h1> EECS 498: Game Engine </h1>
+    <div className='GamePort'>
+      <p>Uses: C++, LuaBridge, Lua, SDL2, Emscripten, GLM, RapidJSON</p>
+       <iframe 
+    src="/portfolio/game_engine/lollipopak_engine.html" 
+            width="1150"
+            height="540"
+            style={{ border: 'none', display: 'block' }}
+            title="LollipopAK Engine"
+            allowFullScreen>
+    </iframe>
+      
+    </div>
+    </>
+  )
+}
+
 export default function App() {
   return (
     <HashRouter>
@@ -201,6 +284,8 @@ export default function App() {
         <Route path="/gamedev" element={<GameDev />} />
         <Route path="/softwaredev" element={<Software />} />
         <Route path="/cinderella" element={<Cinderella />} />
+        <Route path="/pokemon_battle_sim" element={<BattleSim />} />
+        <Route path="/lollipopak_engine" element={<GameEngine />} />
       </Routes>
     </HashRouter>
   )

@@ -191,6 +191,19 @@
     color: white;
     text-decoration: none;
   }
+
+
+  &:hover {
+
+     transition: box-shadow .3s ease-in-out;
+     box-shadow: var(--shadow);
+  }
+
+  &:active {
+    transition: color .3s ease-in-out;
+    color: inherit;
+  }
+
 }
 
 .navigate {
@@ -199,13 +212,36 @@
 
 }
 
+
+a:has(.game_article) {
+  text-decoration: none;
+}
+
 .game_article {
+  display: flex;
+  flex-direction: row;
   border-style: solid;
+  border-radius: 10px;
   border-width: 20%;
+  border-color: white;
   padding: 1%;
+  padding-bottom: 2%;
   margin: 1%;
   text-align: left;
+  transition: box-shadow 0.3s ease-in-out; 
+
+  
+  &:hover {
+     box-shadow: var(--shadow);
+  }
+
+  &:active {
+    transition: color .3s ease-in-out;
+    color: inherit;
+  }
+
 }
+
 
 .GamePort {
   display: flex;
@@ -224,5 +260,21 @@
      &:hover {
         filter: invert(1) sepia(1) saturate(5000%) hue-rotate(210deg);
      }
+  }
+}
+
+.cover {
+  width: 20%;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+#portfolio {
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+     filter: invert(1) sepia(1) saturate(5000%) hue-rotate(210deg);
+     
   }
 }
