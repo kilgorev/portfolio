@@ -261,7 +261,7 @@ function GameEngine(){
     <Header/>
     <h1> EECS 498: Game Engine </h1>
     <div className='GamePort'>
-      <p>Uses: C++, LuaBridge, Lua, SDL2, Emscripten, GLM, RapidJSON</p>
+      <p>Uses: C++, LuaBridge, Lua, SDL2, Emscripten, GLM, RapidJSON, Box2D</p>
        <iframe 
     src="/portfolio/game_engine/lollipopak_engine.html" 
             width="1150"
