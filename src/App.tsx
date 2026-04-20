@@ -254,26 +254,36 @@ function BattleSim(){
     </>
   )
 }
-
-function GameEngine(){
+function GameEngine() {
   return (
     <>
-    <Header/>
-    <h1> EECS 498: Game Engine </h1>
-    <div className='GamePort'>
-      <p>Uses: C++, LuaBridge, Lua, SDL2, Emscripten, GLM, RapidJSON, Box2D</p>
-       <iframe 
-    src="/portfolio/game_engine/lollipopak_engine.html" 
-            width="1150"
-            height="540"
-            style={{ border: 'none', display: 'block' }}
-            title="LollipopAK Engine"
-            allowFullScreen>
-    </iframe>
-      
-    </div>
+      <Header />
+      <h1> EECS 498: Game Engine </h1>
+      <div className='GamePort'>
+        <p>Uses: C++, LuaBridge, Lua, SDL2, Emscripten, GLM, RapidJSON, Box2D</p>
+        <iframe 
+          src="/portfolio/game_engine/lollipopak_engine.html" 
+          width="1080"
+          height="640"
+          style={{ border: 'none', display: 'block' }}
+          title="LollipopAK Engine"
+          allowFullScreen
+        />
+      </div> 
+
+      <div style={{ padding: '50px' }}>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/lzcy5X5b9f4?si=_9Q6vTAxt6jZEeGe" 
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
     </>
-  )
+  ); 
 }
 
 export default function App() {
