@@ -10,10 +10,11 @@ import cinderellaCover from './assets/cinderella_cover.png'
 import battleCover from './assets/battle-sim.jpeg'
 import latchawCover from './assets/latchaw.png'
 import engineCover from './assets/game_engine.png'
+import zeldaCover from './assets/zelda.png'
 import './App.css'
 
 const cindDesc = "This was a project made for my Multimedia Project in my German Fairy Tales course.  While short, the project itself was meant to showcase my dialogue creation and state management skills. All assets were produced and created by myself (other than the music)."
-
+const zeldaDesc = "This is my first project in Unity that wasn't just a tutorial and was created in 3 weeks!"
 function Header() {
   return (
     <header className='header'>
@@ -153,6 +154,18 @@ function GameDev(){
     <Header/>
     <h1> Game Development </h1>
     <h2>Check out my game collection!</h2>
+    <section>
+      <Link to="/zelda">
+      <div className='game_article'>
+        <img src={zeldaCover} className = "cover"></img>
+        <div>
+        <h3>Zelda NES Unity Remake</h3>
+  
+        <p>{zeldaDesc}</p>
+        </div>
+      </div>
+      </Link>
+    </section>
 
     <section>
       <Link to="/cinderella">
@@ -211,6 +224,28 @@ function Software(){
       </Link>
     </section>
   </>
+  )
+}
+
+function Zelda(){
+  return(
+
+  <>
+  <Header/>
+  <h1> Zelda NES Remake</h1>
+  <div className='GamePort'>
+  <iframe
+            src="/portfolio/p1_gold_web/index.html"
+            width="960"
+            height="1024"
+            style={{ border: 'none', display: 'block' }}
+            title="Zelda NES Remake"
+            allowFullScreen
+          />
+
+          <p>{zeldaDesc}</p>
+          </div>
+          </>
   )
 }
 
@@ -296,6 +331,7 @@ export default function App() {
         <Route path="/cinderella" element={<Cinderella />} />
         <Route path="/pokemon_battle_sim" element={<BattleSim />} />
         <Route path="/lollipopak_engine" element={<GameEngine />} />
+        <Route path="/zelda" element={<Zelda />} />
       </Routes>
     </HashRouter>
   )
