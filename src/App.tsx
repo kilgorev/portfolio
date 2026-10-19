@@ -11,10 +11,12 @@ import battleCover from './assets/battle-sim.jpeg'
 import latchawCover from './assets/latchaw.png'
 import engineCover from './assets/game_engine.png'
 import zeldaCover from './assets/zelda.png'
+import fishEconomyCover from './assets/fish-economy-cover.png'
 import './App.css'
 
 const cindDesc = "This was a project made for my Multimedia Project in my German Fairy Tales course.  While short, the project itself was meant to showcase my dialogue creation and state management skills. All assets were produced and created by myself (other than the music)."
 const zeldaDesc = "This is my first project in Unity that wasn't just a tutorial and was created in 3 weeks!"
+const fisheconomyDesc = "I made this game in Unity in 2 weeks. I utilized blender for all of the 3D assets seen. I also composed the main background music. All sound effects were found on OpenGameArt."
 function Header() {
   return (
     <header className='header'>
@@ -155,6 +157,20 @@ function GameDev(){
     <h1> Game Development </h1>
     <h2>Check out my game collection!</h2>
     <section>
+      <Link to="/fisheconomy">
+      <div className='game_article'>
+        <img src={fishEconomyCover} className = "cover"></img>
+        <div>
+        <h3>Fish Economy</h3>
+  
+        <p>{fisheconomyDesc}</p>
+        </div>
+      </div>
+      </Link>
+    </section>
+
+
+    <section>
       <Link to="/zelda">
       <div className='game_article'>
         <img src={zeldaCover} className = "cover"></img>
@@ -224,6 +240,28 @@ function Software(){
       </Link>
     </section>
   </>
+  )
+}
+
+function FishEconomy(){
+  return(
+
+  <>
+  <Header/>
+  <h1>Fish Economy</h1>
+  <div className='GamePort'>
+  <iframe
+            src="/portfolio/fish-economy-web-v2/index.html"
+            width="1200"
+            height="1090"
+            style={{ border: 'none', display: 'block' }}
+            title="Fish Economy"
+            allowFullScreen
+          />
+
+          <p>{fisheconomyDesc}</p>
+          </div>
+          </>
   )
 }
 
@@ -332,6 +370,7 @@ export default function App() {
         <Route path="/pokemon_battle_sim" element={<BattleSim />} />
         <Route path="/lollipopak_engine" element={<GameEngine />} />
         <Route path="/zelda" element={<Zelda />} />
+        <Route path="/fisheconomy" element={<FishEconomy />} />
       </Routes>
     </HashRouter>
   )
