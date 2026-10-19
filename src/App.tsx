@@ -252,8 +252,8 @@ function FishEconomy(){
   <div className='GamePort'>
   <iframe
             src="/portfolio/fish-economy-web-v2/index.html"
-            width="1200"
-            height="1090"
+            width="1000"
+            height="700"
             style={{ border: 'none', display: 'block' }}
             title="Fish Economy"
             allowFullScreen
