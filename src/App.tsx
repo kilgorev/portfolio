@@ -1,18 +1,15 @@
 // import { useState } from 'react'
 import { HashRouter, Routes, Route, Link } from 'react-router-dom'
-import giraffeImg from './assets/giraffe.jpeg'
-import hopcatImg from './assets/hopcat.jpeg'
-import stadiumImg from './assets/stadium.jpeg'
-import linkedIcon from './assets/linkedin-2.svg'
-import itchIcon from './assets/itch.svg'
-import bookIcon from './assets/book.svg'
-import cinderellaCover from './assets/cinderella_cover.png'
-import battleCover from './assets/battle-sim.jpeg'
-import latchawCover from './assets/latchaw.png'
-import engineCover from './assets/game_engine.png'
-import zeldaCover from './assets/zelda.png'
-import fishEconomyCover from './assets/fish-economy-cover.png'
+import linkedIcon from './assets/icons/linkedin-2.svg'
+import itchIcon from './assets/icons/itch.svg'
+import cinderellaCover from './assets/images/cinderella_cover.png'
+import battleCover from './assets/images/battle-sim.jpeg'
+import latchawCover from './assets/images/latchaw.png'
+import engineCover from './assets/images/game_engine.png'
+import zeldaCover from './assets/images/zelda.png'
+import fishEconomyCover from './assets/images/fish-economy-cover.png'
 import './App.css'
+import ImageSlider from './components/imageslider.tsx'
 
 const cindDesc = "This was a project made for my Multimedia Project in my German Fairy Tales course.  While short, the project itself was meant to showcase my dialogue creation and state management skills. All assets were produced and created by myself (other than the music)."
 const zeldaDesc = "This is my first project in Unity that wasn't just a tutorial and was created in 3 weeks!"
@@ -29,72 +26,39 @@ function Header() {
   )
 }
 
+
 function Home() {
 
   return (
     <>
       <section id="center">
-        <div className="hero">
-          <div id="stacked">
-            <img src={giraffeImg} className="pics" alt="Picture of Me" width="300" />
-            <img src={stadiumImg} className="pics" alt="Picture of Me" width="300" />
-            <img src={hopcatImg} className="pics" alt="Picture of Me" width="300" />
-          </div>
-        </div>
+        
         <div>
           <h1>Victoria Kilgore</h1>
-            <p>
-              <code>Third-Year Student @ University of Michigan - Ann Arbor</code>
-            </p>
-            <br></br>
-            <p>
-              <code>Computer Science Major</code>
-            </p>
-            <br></br>
-            <p>
-              <code>Community Manager for WolverineSoft</code>
-            </p>
-            <br></br>
-            <p><code>Software Engineer</code></p>
-            <br></br>
-            <p><code>Indie Game Developer</code></p>
-            <br></br>
-            <p><code>Web Developer</code></p>
+          <section id="spacer"></section>
+          <section>
+             <h2>Game Developer</h2>
+             <article id="slides">
+              <ImageSlider/>
+             </article>
+          </section>
+          <section id="spacer"></section>
+          <section>
+             <h2>Software Engineer</h2>
+          </section>
+          <section id="spacer"></section>
+          <section>
+             <h2>Website Designer</h2>
+          </section>
+          <section id="spacer"></section>
+          <section>
+             <h2>Artist</h2>
+          </section>
+            
         </div>
-         <div id="stacked">
-            <img src={giraffeImg} className="pics" alt="Picture of Me" width="300" />
-            <img src={stadiumImg} className="pics" alt="Picture of Me" width="300" />
-            <img src={hopcatImg} className="pics" alt="Picture of Me" width="300" />
-          </div>
+       
       </section>
 
-
-      <section id="spacer"></section>
-
-      <section id="portfolio">
-        <img className="icon" src={bookIcon} role="presentation" aria-hidden="true" />
-        <h2>Portfolio</h2>
-        <p>Interact with my work!</p>
-        <div className = "navigate">
-          <ul>
-            <li>
-              <Link to="/gamedev">
-              Game Development
-              </Link>
-            </li>
-            <li>
-              <Link to="/softwaredev">
-              Software Development
-              </Link>
-            </li>
-            <li>
-              Concepts & Art
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
 
       <section id="next-steps">
         <div id="social">
@@ -251,7 +215,7 @@ function FishEconomy(){
   <h1>Fish Economy</h1>
   <div className='GamePort'>
   <iframe
-            src="/portfolio/fish-economy-web-v2/index.html"
+            src="/portfolio/projects/fish-economy-web-v2/index.html"
             width="1000"
             height="700"
             style={{ border: 'none', display: 'block' }}
@@ -273,7 +237,7 @@ function Zelda(){
   <h1> Zelda NES Remake</h1>
   <div className='GamePort'>
   <iframe
-            src="/portfolio/p1_gold_web/index.html"
+            src="/portfolio/projects/p1_gold_web/index.html"
             width="960"
             height="1024"
             style={{ border: 'none', display: 'block' }}
@@ -295,7 +259,7 @@ function Cinderella(){
   <h1> Cinderella: A Visual Novel</h1>
   <div className='GamePort'>
   <iframe
-            src="/portfolio/cinderella/cinderella_v02/index.html"
+            src="/portfolio/projects/cinderella/cinderella_v02/index.html"
             width="960"
             height="540"
             style={{ border: 'none', display: 'block' }}
@@ -335,7 +299,7 @@ function GameEngine() {
       <div className='GamePort'>
         <p>Uses: C++, LuaBridge, Lua, SDL2, Emscripten, GLM, RapidJSON, Box2D</p>
         <iframe 
-          src="/portfolio/game_engine/lollipopak_engine.html" 
+          src="/portfolio/projects/game_engine/lollipopak_engine.html" 
           width="1080"
           height="640"
           style={{ border: 'none', display: 'block' }}
