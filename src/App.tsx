@@ -62,9 +62,6 @@ function Home() {
 
       <section id="next-steps">
         <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="src/assets/link.svg"></use>
-          </svg>
           <h2>Connect with me!</h2>
           <p>See what I'm working on</p>
           <ul>

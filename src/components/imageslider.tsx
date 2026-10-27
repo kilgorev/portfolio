@@ -6,6 +6,8 @@ import zeldaImg from '../assets/images/zelda.png'
 import fishEconomyImg from '../assets/images/fish-economy-cover.png'
 import cinderellaImg from '../assets/images/cinderella_cover.png'
 
+import type { CSSProperties } from 'react'
+
 const titleStyle = {
   color: '#FFFFFF',
   fontSize: '18px'
@@ -20,7 +22,7 @@ const imageStyle = {
   width: '200px'
 }
 
-const divStyle = {
+const divStyle: CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -61,8 +63,8 @@ export default function ImageSlider() {
              <Link to={slideImage.link}>
               <div key={index} style={divStyle}>
               <img style={imageStyle} src={slideImage.url}></img>
-              <span style={titleStyle}>{slideImage.title}</span>
-              <span style={captionStyle}>{slideImage.caption}</span>
+              <h3 style={titleStyle}>{slideImage.title}</h3>
+              <p style={captionStyle}>{slideImage.caption}</p>
               </div>
             </Link>
 
