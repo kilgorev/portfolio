@@ -1,75 +1,38 @@
-import 'react-slideshow-image/dist/styles.css'
-import { Slide} from 'react-slideshow-image'
 import { Link } from 'react-router-dom'
 
-import zeldaImg from '../assets/images/zelda.png'
-import fishEconomyImg from '../assets/images/fish-economy-cover.png'
-import cinderellaImg from '../assets/images/cinderella_cover.png'
-
-import type { CSSProperties } from 'react'
-
-const titleStyle = {
-  color: '#FFFFFF',
-  fontSize: '18px'
+export type SlideItem = {
+  url: string
+  title: string
+  caption: string
+  link: string
 }
 
-const captionStyle = {
-   color: '#FFFFFF',
-   fontSize: '12px'
+type Props = {
+  items: SlideItem[]
 }
 
-const imageStyle = {
-  width: '200px'
-}
+export default function ImageSlider({ items }: Props) {
+  const [featured, ...rest] = items
+  if (!featured) return null
 
-const divStyle: CSSProperties = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  width: '100%',
-  flexDirection: 'column'
-}
-
-const slideImages = [
-  {
-    url: zeldaImg,
-    title: 'Zelda Remake',
-    caption: 'Recreation of the original NES Zelda game in Unity over the span of 2 weeks.',
-    link: '/zelda'
-  },
-  {
-    url: fishEconomyImg,
-    title: 'Fish Economy',
-    caption: 'Aesthetic fish catching game made using Blender and Unity.',
-    link: '/fisheconomy'
-  },
-  {
-    url: cinderellaImg,
-    title: 'Cinderella Visual Novel',
-    caption: 'Retelling of Cinderella for German Fairy Tales course, created in GODOT and assets were made with Aseprite.',
-    link: '/cinderella'
-  }
-
-]
-
-export default function ImageSlider() {
   return (
-      <div className="slide-container">
-        <Slide>
-         {slideImages.map((slideImage, index)=> (
-            
-             <Link to={slideImage.link}>
-              <div key={index} style={divStyle}>
-              <img style={imageStyle} src={slideImage.url}></img>
-              <h3 style={titleStyle}>{slideImage.title}</h3>
-              <p style={captionStyle}>{slideImage.caption}</p>
-              </div>
-            </Link>
+    <div className="project-grid">
+      <Link to={featured.link} className="project-card featured">
+        <img src={featured.url} alt={featured.title} loading="lazy" decoding="async" />
+        <h3>{featured.title}</h3>
+        <p>{featured.caption}</p>
+      </Link>
 
-          ))} 
-        </Slide>
-      </div>
-    )
+      {rest.length > 0 && (
+        <div className="project-row">
+          {rest.map((item) => (
+            <Link key={item.link} to={item.link} className="project-card">
+              <img src={item.url} alt={item.title} loading="lazy" decoding="async" />
+              <h3>{item.title}</h3>
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  )
 }

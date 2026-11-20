@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import linkedIcon from './assets/icons/linkedin-2.svg'
 import itchIcon from './assets/icons/itch.svg'
@@ -8,12 +7,74 @@ import latchawCover from './assets/images/latchaw.png'
 import engineCover from './assets/images/game_engine.png'
 import zeldaCover from './assets/images/zelda.png'
 import fishEconomyCover from './assets/images/fish-economy-cover.png'
-import './App.css'
 import ImageSlider from './components/imageslider.tsx'
+import type { SlideItem } from './components/imageslider.tsx'
+import './App.css'
+
+// Put the live URL of Latchaw & Kilgore, CPA, P.C. here to show a "Visit site" button.
+const LATCHAW_URL = ''
+
+const engineDesc = "A custom 2D game engine I built in C++ for EECS 498, scripted with Lua through LuaBridge and compiled to the web with Emscripten."
+const battleDesc = "A Pokemon battle simulator built in R and hosted with Shiny."
+const latchawDesc = "I built the website for my dad's CPA firm, Latchaw & Kilgore, CPA, P.C., using WordPress. It showcases my abilities surrounding User Experience & Design."
+
+const gameSlides: SlideItem[] = [
+  {
+    url: fishEconomyCover,
+    title: 'Fish Economy',
+    caption: 'Aesthetic fish catching game made using Blender and Unity.',
+    link: '/fisheconomy'
+  },
+  {
+    url: zeldaCover,
+    title: 'Zelda Remake',
+    caption: 'Recreation of the original NES Zelda game in Unity over the span of 3 weeks.',
+    link: '/zelda'
+  },
+
+  {
+    url: cinderellaCover,
+    title: 'Cinderella Visual Novel',
+    caption: 'Retelling of Cinderella for German Fairy Tales course, created in GODOT with assets made in Aseprite.',
+    link: '/cinderella'
+  },
+  {
+    url: engineCover,
+    title: 'LollipopAK Game Engine',
+    caption: 'A custom C++ game engine with Lua scripting, physics, and a web build.',
+    link: '/lollipopak_engine'
+  }
+]
+
+const softwareSlides: SlideItem[] = [
+  {
+    url: engineCover,
+    title: 'LollipopAK Game Engine',
+    caption: engineDesc,
+    link: '/lollipopak_engine'
+  },
+  {
+    url: battleCover,
+    title: 'Pokemon Battle Simulator',
+    caption: battleDesc,
+    link: '/pokemon_battle_sim'
+  }
+]
+
+const webSlides: SlideItem[] = [
+  {
+    url: latchawCover,
+    title: 'Latchaw & Kilgore, CPA, P.C.',
+    caption: 'A WordPress website for my dad\'s CPA firm, focused on clean user experience and design.',
+    link: '/latchaw_website'
+  }
+]
+
 
 const cindDesc = "This was a project made for my Multimedia Project in my German Fairy Tales course.  While short, the project itself was meant to showcase my dialogue creation and state management skills. All assets were produced and created by myself (other than the music)."
 const zeldaDesc = "This is my first project in Unity that wasn't just a tutorial and was created in 3 weeks!"
 const fisheconomyDesc = "I made this game in Unity in 2 weeks. I utilized blender for all of the 3D assets seen. I also composed the main background music. All sound effects were found on OpenGameArt."
+
 function Header() {
   return (
     <header className='header'>
@@ -36,23 +97,41 @@ function Home() {
         <div>
           <h1>Victoria Kilgore</h1>
           <section id="spacer"></section>
-          <section>
-             <h2>Game Developer</h2>
+          <section className="home-section">
+             <div className="section-heading">
+               <h2>Game Developer</h2>
+               <Link to="/gamedev" className="see-all">See all &rarr;</Link>
+             </div>
              <article id="slides">
-              <ImageSlider/>
+              <ImageSlider items={gameSlides}/>
              </article>
           </section>
           <section id="spacer"></section>
-          <section>
-             <h2>Software Engineer</h2>
+          <section className="home-section">
+             <div className="section-heading">
+               <h2>Software Engineer</h2>
+               <Link to="/softwaredev" className="see-all">See all &rarr;</Link>
+             </div>
+             <article id="slides">
+              <ImageSlider items={softwareSlides}/>
+             </article>
           </section>
           <section id="spacer"></section>
-          <section>
-             <h2>Website Designer</h2>
+          <section className="home-section">
+             <div className="section-heading">
+               <h2>Website Designer</h2>
+               <Link to="/latchaw_website" className="see-all">View project &rarr;</Link>
+             </div>
+             <article id="slides">
+              <ImageSlider items={webSlides}/>
+             </article>
           </section>
           <section id="spacer"></section>
-          <section>
-             <h2>Artist</h2>
+          <section className="home-section">
+             <div className="section-heading">
+               <h2>Artist</h2>
+             </div>
+             <p className="coming-soon">Art gallery coming soon!</p>
           </section>
             
         </div>
@@ -71,7 +150,7 @@ function Home() {
               className="button-icon"
               role="presentation"
               aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z"/></svg>
+              xmlns="http://www.w3.org/2000/svg" shapeRendering="geometricPrecision" textRendering="geometricPrecision" imageRendering="optimizeQuality" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 640 640"><path d="M319.988 7.973C143.293 7.973 0 151.242 0 327.96c0 141.392 91.678 261.298 218.826 303.63 16.004 2.964 21.886-6.957 21.886-15.414 0-7.63-.319-32.835-.449-59.552-89.032 19.359-107.8-37.772-107.8-37.772-14.552-36.993-35.529-46.831-35.529-46.831-29.032-19.879 2.209-19.442 2.209-19.442 32.126 2.245 49.04 32.954 49.04 32.954 28.56 48.922 74.883 34.76 93.131 26.598 2.882-20.681 11.15-34.807 20.315-42.803-71.08-8.067-145.797-35.516-145.797-158.14 0-34.926 12.52-63.485 32.965-85.88-3.33-8.078-14.291-40.606 3.083-84.674 0 0 26.87-8.61 88.029 32.8 25.512-7.075 52.878-10.642 80.056-10.76 27.2.118 54.614 3.673 80.162 10.76 61.076-41.386 87.922-32.8 87.922-32.8 17.398 44.08 6.485 76.631 3.154 84.675 20.516 22.394 32.93 50.953 32.93 85.879 0 122.907-74.883 149.93-146.117 157.856 11.481 9.921 21.733 29.398 21.733 59.233 0 42.792-.366 77.28-.366 87.804 0 8.516 5.764 18.473 21.992 15.354 127.076-42.354 218.637-162.274 218.637-303.582 0-176.695-143.269-319.988-320-319.988l-.023.107z"/></svg>
 
                 GitHub
               </a>
@@ -204,6 +283,24 @@ function Software(){
   )
 }
 
+function LatchawWebsite(){
+  return(
+    <>
+      <Header/>
+      <h1>Latchaw & Kilgore, CPA, P.C.</h1>
+      <div className='GamePort'>
+        <img src={latchawCover} alt="Latchaw & Kilgore website" className="project-hero" />
+        <p className="project-desc">{latchawDesc}</p>
+        {LATCHAW_URL && (
+          <a href={LATCHAW_URL} target="_blank" rel="noreferrer" className="visit-button">
+            Visit site
+          </a>
+        )}
+      </div>
+    </>
+  )
+}
+
 function FishEconomy(){
   return(
 
@@ -330,6 +427,7 @@ export default function App() {
         <Route path="/cinderella" element={<Cinderella />} />
         <Route path="/pokemon_battle_sim" element={<BattleSim />} />
         <Route path="/lollipopak_engine" element={<GameEngine />} />
+        <Route path="/latchaw_website" element={<LatchawWebsite />} />
         <Route path="/zelda" element={<Zelda />} />
         <Route path="/fisheconomy" element={<FishEconomy />} />
       </Routes>

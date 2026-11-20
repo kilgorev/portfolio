@@ -47,15 +47,14 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
-    #social .button-icon {
+}
+
+#social .button-icon {
   filter: invert(1) brightness(2);
 }
 
-
-  
-  .navigate li{
-    background-color: var(--social-bg);
-  }
+.navigate li {
+  background-color: var(--social-bg);
 }
 
 #root {
@@ -63,7 +62,6 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
