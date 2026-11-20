@@ -565,3 +565,12 @@ h2 { font-size: clamp(24px, 4vw, 44px); }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
+
+a {
+  color: inherit;
+}
+
+a:has(.game_article) {
+  color: var(--text-h);
+  text-decoration: none;
+}
